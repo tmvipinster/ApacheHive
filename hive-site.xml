@@ -1,0 +1,58 @@
+<configuration>
+ <property>
+  <name>hive.support.concurrency</name>
+  <value>true</value>
+ </property>
+  <property>
+  <name>hive.exec.dynamic.partition</name>
+  <value>true</value>
+ </property>
+ <property>
+  <name>hive.enforce.bucketing</name>
+  <value>true</value>
+ </property>
+ <property>
+  <name>hive.exec.dynamic.partition.mode</name>
+  <value>nonstrict</value>
+ </property>
+ <property>
+  <name>hive.txn.manager</name>
+  <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+ </property>
+ <property>
+  <name>hive.compactor.initiator.on</name>
+  <value>true</value>
+ </property>
+ <property>
+  <name>hive.compactor.worker.threads</name>
+  <value>2</value>
+ </property>
+ <property>
+    <name>hive.execution.engine</name>
+    <value>tez</value>
+    <description>
+      Expects one of [mr, tez, spark].
+      Chooses execution engine. Options are: mr (Map reduce, default), tez, spark. While MR
+      remains the default engine for historical reasons, it is itself a historical engine
+      and is deprecated in Hive 2 line. It may be removed without further warning.
+    </description>
+  </property>
+ <property>
+  <name>mapreduce.map.memory.mb</name>
+  <value> 4096 </value>
+ </property>
+ <property>
+  <name>mapreduce.reduce.memory.mb</name>
+  <value> 5120 </value>
+ </property>
+<property>
+<name>datanucleus.autoCreateSchema</name>
+<value>false</value>
+<description>Creates necessary schema on a startup if one doesn't exist</description>
+  </property>
+  <property>
+     <name>javax.jdo.option.ConnectionURL</name>
+     <value>jdbc:derby:metastore_db;create=true </value>
+     <description>JDBC connect string for a JDBC metastore </description>
+ </property>
+</configuration>
