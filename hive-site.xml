@@ -1,26 +1,14 @@
 <configuration>
   <property>
-  <name>hive.server2.tez.sessions.per.default.queue</name>
-  <value>3</value>
- </property>
-  <property>
   <name>hive.server2.tez.initialize.default.sessions</name>
   <value>true</value>
  </property>
    <property>
-  <name>hive.prewarm.enabled</name>
-  <value>true</value>
- </property>
-  <property>
-  <name>hive.prewarm.numcontainers</name>
-  <value>2</value>
+  <name>hive.server2.enable.doAs</name>
+  <value>false</value>
  </property>
  <property>
   <name>hive.support.concurrency</name>
-  <value>true</value>
- </property>
-  <property>
-  <name>hive.exec.dynamic.partition</name>
   <value>true</value>
  </property>
  <property>
@@ -61,6 +49,16 @@
   <name>mapreduce.reduce.memory.mb</name>
   <value> 5120 </value>
  </property>
+ <property>
+    <name>hive.tez.container.size</name>
+    <value>2048</value>
+    <description>By default Tez will spawn containers of the size of a mapper. This can be used to overwrite.</description>
+  </property>
+<property>
+    <name>hive.tez.java.opts</name>
+    <value>-Xmx2560m</value>
+    <description>By default Tez will use the Java options from map tasks. This can be used to overwrite.</description>
+  </property>
 <property>
 <name>datanucleus.autoCreateSchema</name>
 <value>false</value>

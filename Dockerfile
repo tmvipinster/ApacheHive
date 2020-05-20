@@ -1,8 +1,6 @@
-FROM tmvipin/tez:latest 
+FROM striim/tez:0.9.1
 
 RUN curl -s https://downloads.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz | tar -xz -C /usr/local
-#COPY apache-hive-3.1.2-bin.tar.gz .
-#RUN  tar -xvf apache-hive-3.1.2-bin.tar.gz -C /usr/local
 RUN cd /usr/local && ln -s /usr/local/apache-hive-3.1.2-bin hive
 ENV HIVE_HOME /usr/local/hive
 
@@ -32,7 +30,7 @@ COPY entrypoint.sh /etc/docker-startup/entrypoint.sh
 RUN chown -R root:root /etc/docker-startup
 RUN chmod -R 700 /etc/docker-startup
 
-EXPOSE 10000 10002 9866 50010 50075 50475 50020 8020 8022 50070 50090 8888 8088 9866 9000
+EXPOSE 10000 10002 9866 50010 50075 50475 50020 8020 8022:8022 50070 50090 8888 8088 9866 9000
 
 # Downstream images can use this too start Hadoop and Hive services
 ENV BOOTSTRAP /etc/docker-startup/hive-bootstrap.sh
