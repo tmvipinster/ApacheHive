@@ -1,4 +1,4 @@
-FROM FROM tmvipin/tez:latest
+FROM tmvipin/tez:latest
 RUN curl -s https://downloads.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz | tar -xz -C /usr/local
 RUN cd /usr/local && ln -s /usr/local/apache-hive-3.1.2-bin hive
 ENV HIVE_HOME /usr/local/hive
