@@ -1,4 +1,20 @@
 <configuration>
+  <property>
+  <name>hive.server2.tez.sessions.per.default.queue</name>
+  <value>3</value>
+ </property>
+  <property>
+  <name>hive.server2.tez.initialize.default.sessions</name>
+  <value>true</value>
+ </property>
+   <property>
+  <name>hive.prewarm.enabled</name>
+  <value>true</value>
+ </property>
+  <property>
+  <name>hive.prewarm.numcontainers</name>
+  <value>2</value>
+ </property>
  <property>
   <name>hive.support.concurrency</name>
   <value>true</value>
@@ -25,7 +41,7 @@
  </property>
  <property>
   <name>hive.compactor.worker.threads</name>
-  <value>4</value>
+  <value>2</value>
  </property>
  <property>
     <name>hive.execution.engine</name>
