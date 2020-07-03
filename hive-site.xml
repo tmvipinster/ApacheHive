@@ -1,15 +1,27 @@
 <configuration>
-  <property>
-  <name>hive.server2.tez.initialize.default.sessions</name>
+ <property>
+  <name>hive.auto.convert.join</name>
   <value>true</value>
- </property>
-   <property>
-  <name>hive.server2.enable.doAs</name>
-  <value>false</value>
  </property>
  <property>
+  <name>hive.vectorized.execution.enabled</name>
+  <value>true</value>
+ </property>
+ <property>
+  <name>hive.mapjoin.smalltable.filesize</name>
+  <value>25000000</value>
+</property>
+<property>
+    <name>hive.aux.jars.path</name>
+    <value>file:///usr/local/apache-hive-3.1.2-bin/lib/hive-metastore-3.1.2.jar</value>
+ </property>
+<property>
   <name>hive.support.concurrency</name>
   <value>true</value>
+ </property>
+ <property>
+  <name>metastore.storage.schema.reader.impl</name>
+  <value>org.apache.hadoop.hive.metastore.SerDeStorageSchemaReader</value>
  </property>
  <property>
   <name>hive.enforce.bucketing</name>
@@ -29,7 +41,7 @@
  </property>
  <property>
   <name>hive.compactor.worker.threads</name>
-  <value>2</value>
+  <value>4</value>
  </property>
  <property>
     <name>hive.execution.engine</name>
@@ -41,29 +53,45 @@
       and is deprecated in Hive 2 line. It may be removed without further warning.
     </description>
   </property>
+  <property>
+        <name>hive.cbo.enable</name>
+        <value>true</value>
+    </property>
  <property>
-  <name>mapreduce.map.memory.mb</name>
-  <value> 4096 </value>
- </property>
- <property>
-  <name>mapreduce.reduce.memory.mb</name>
-  <value> 5120 </value>
- </property>
- <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+    <property>
+        <name>mapreduce.map.memory.mb</name>
+        <value>4096</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.memory.mb</name>
+        <value>4096</value>
+    </property>
+    <property>
+        <name>mapreduce.map.java.opts</name>
+        <value>-Xmx3278m</value>
+    </property>
+    <property>
+         <name>mapreduce.reduce.java.opts</name>
+         <value>-Xmx3278m</value>
+</property>
+<property>
     <name>hive.tez.container.size</name>
-    <value>2048</value>
+    <value>4096</value>
     <description>By default Tez will spawn containers of the size of a mapper. This can be used to overwrite.</description>
   </property>
-<property>
+ <property>
     <name>hive.tez.java.opts</name>
-    <value>-Xmx2560m</value>
-    <description>By default Tez will use the Java options from map tasks. This can be used to overwrite.</description>
+    <value>-Xmx3278m</value>
+    <description>By default Tez will spawn containers of the size of a mapper. This can be used to overwrite.</description>
   </property>
 <property>
 <name>datanucleus.autoCreateSchema</name>
 <value>false</value>
 <description>Creates necessary schema on a startup if one doesn't exist</description>
-  </property>
+</property>
   <property>
      <name>javax.jdo.option.ConnectionURL</name>
      <value>jdbc:derby:metastore_db;create=true </value>

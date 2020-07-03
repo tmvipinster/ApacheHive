@@ -22,7 +22,7 @@ RUN $BOOTSTRAP && hdfs dfsadmin -safemode leave \
 ADD hive-site.xml /etc/hive/
 ADD core-site.xml.template $HADOOP_HOME/etc/hadoop/
 
-ENV HADOOP_CLIENT_OPTS $HADOOP_CLIENT_OPTS -XX:MaxPermSize=256m
+ENV HADOOP_CLASSPATH $HADOOP_CLASSPATH:/usr/local/apache-hive-3.1.2-bin/lib/*:/usr/local/apache-tez-0.9.1-bin/lib/:/usr/local/apache-tez-0.9.1-bin/lib/hive:/usr/local/apache-hive-3.1.2-bin/lib/hive-metastore-3.1.2.jar:/usr/local/hive/lib/hive-metastore-3.1.2.jar
 
 COPY hive-bootstrap.sh /etc/docker-startup/hive-bootstrap.sh
 COPY entrypoint.sh /etc/docker-startup/entrypoint.sh
